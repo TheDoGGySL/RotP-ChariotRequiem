@@ -1,0 +1,11 @@
+{
+  "entity.rotp_cr.chariot_requiem": "Chariot Requiem",
+  "stand.rotp_cr.chariot_requiem": "Chariot Requiem",
+  "action.rotp_cr.chariot_requiem_punch": "Punch",
+  "action.rotp_cr.chariot_requiem_heavy_punch": "Heavy Punch",
+  "action.rotp_cr.chariot_requiem_finisher_punch": "Finisher Punch",
+  "action.rotp_cr.chariot_requiem_barrage": "Punch Barrage",
+  "action.rotp_cr.chariot_requiem_block": "Block",
+  "action.rotp_cr.chariot_requiem_virus": "Initiate Virus",
+  "action.rotp_cr.chariot_requiem_aura": "Dream Aura"
+}

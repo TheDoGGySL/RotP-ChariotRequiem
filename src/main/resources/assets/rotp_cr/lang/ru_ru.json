@@ -1,0 +1,11 @@
+{
+  "entity.rotp_cr.chariot_requiem": "Chariot Requiem",
+  "stand.rotp_cr.chariot_requiem": "Chariot Requiem",
+  "action.rotp_cr.chariot_requiem_punch": "Удар",
+  "action.rotp_cr.chariot_requiem_heavy_punch": "Тяжёлый удар",
+  "action.rotp_cr.chariot_requiem_finisher_punch": "Добивающий удар",
+  "action.rotp_cr.chariot_requiem_barrage": "Шквал ударов",
+  "action.rotp_cr.chariot_requiem_block": "Блокирование",
+  "action.rotp_cr.chariot_requiem_virus": "Выпустить вирус",
+  "action.rotp_cr.chariot_requiem_aura": "Аура сна"
+}
