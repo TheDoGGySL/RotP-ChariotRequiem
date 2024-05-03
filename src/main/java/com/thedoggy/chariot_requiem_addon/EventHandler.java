@@ -1,3 +1,4 @@
+package com.thedoggy.chariot_requiem_addon;
 import com.github.standobyte.jojo.init.power.stand.ModStands;
 import com.github.standobyte.jojo.item.StandArrowItem;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
@@ -14,7 +15,7 @@ import static com.thedoggy.chariot_requiem_addon.ChariotRequiem.MOD_ID;
 
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
-public class GameplayHandler {
+public class EventHandler {
     @SubscribeEvent
     public static void onItemUse(PlayerInteractEvent.RightClickItem event) {
         PlayerEntity player = event.getPlayer();

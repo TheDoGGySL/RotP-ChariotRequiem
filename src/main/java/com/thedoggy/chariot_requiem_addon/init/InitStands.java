@@ -6,11 +6,11 @@ import com.github.standobyte.jojo.action.Action;
 import com.github.standobyte.jojo.action.stand.*;
 import com.github.standobyte.jojo.entity.stand.StandEntityType;
 import com.github.standobyte.jojo.init.power.stand.EntityStandRegistryObject;
-import com.github.standobyte.jojo.init.power.stand.ModStandsInit;
 import com.github.standobyte.jojo.power.impl.stand.StandInstance.StandPart;
 import com.github.standobyte.jojo.power.impl.stand.stats.StandStats;
 import com.github.standobyte.jojo.power.impl.stand.type.EntityStandType;
 import com.github.standobyte.jojo.power.impl.stand.type.StandType;
+import com.github.standobyte.jojo.util.mod.StoryPart;
 
 import com.thedoggy.chariot_requiem_addon.action.ChariotDarkAura;
 import com.thedoggy.chariot_requiem_addon.action.ChariotVirus;
@@ -76,7 +76,7 @@ public class InitStands {
                     STANDS, 
                     () -> new EntityStandType.Builder<StandStats>()
                     .color(0x1D152F)
-                    .storyPartName(ModStandsInit.PART_5_NAME)
+                    .storyPartName(StoryPart.GOLDEN_WIND.getName())
                     .leftClickHotbar(
                             CHARIOT_REQUIEM_PUNCH.get(),
                             CHARIOT_REQUIEM_BARRAGE.get()
@@ -87,7 +87,6 @@ public class InitStands {
                             CHARIOT_VIRUS.get()
                             )
                     .defaultStats(StandStats.class, new StandStats.Builder()
-                            .tier(6)
                             .power(15)
                             .speed(5)
                             .range(10000, 10000)
