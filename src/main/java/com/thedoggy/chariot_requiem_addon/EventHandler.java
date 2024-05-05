@@ -24,13 +24,15 @@ public class EventHandler {
             IStandPower.getStandPowerOptional(player).ifPresent(power -> {
                 StandType<?> sc = ModStands.SILVER_CHARIOT.getStandType();
                 if (power.getType() == sc) {
-                    power.clear();
-                    power.givePower(InitStands.STAND_CHARIOT_REQUIEM.getStandType());
-                    power.toggleSummon();
-                    event.setCanceled(true);
-                    event.setCancellationResult(ActionResultType.SUCCESS);
-
-
+                    if (power.isActive()) {
+                        if (power.getResolveLevel() > 3) {
+                            power.clear();
+                            power.givePower(InitStands.STAND_CHARIOT_REQUIEM.getStandType());
+                            power.toggleSummon();
+                            event.setCanceled(true);
+                            event.setCancellationResult(ActionResultType.SUCCESS);
+                        }
+                    }
                 }
             });
 
