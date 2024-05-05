@@ -10,6 +10,7 @@ import com.github.standobyte.jojo.init.ModStatusEffects;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
 import com.github.standobyte.jojo.util.mc.MCUtil;
 import com.github.standobyte.jojo.util.mod.JojoModUtil;
+import com.thedoggy.chariot_requiem_addon.init.InitSounds;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -65,7 +66,7 @@ public class ChariotDarkAura extends StandEntityAction {
 
 
                 }
-            standEntity.playSound(ModSounds.VAMPIRE_CURE_START .get(), 1.0F, 1.0F);
+            standEntity.playSound(InitSounds.CHARIOT_REQUIEM_AURA.get(), 1.0F, 1.0F);
             }
 
         }
