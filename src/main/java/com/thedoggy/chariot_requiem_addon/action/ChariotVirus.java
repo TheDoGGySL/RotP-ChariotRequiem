@@ -9,6 +9,7 @@ import com.github.standobyte.jojo.init.ModSounds;
 import com.github.standobyte.jojo.init.ModStatusEffects;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
 import com.github.standobyte.jojo.util.mod.JojoModUtil;
+import com.thedoggy.chariot_requiem_addon.init.InitSounds;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -100,7 +101,7 @@ public class ChariotVirus extends StandEntityAction {
                     targetEntity.addEffect(new EffectInstance(Effects.BLINDNESS, 500, 4, true, false));
                     targetEntity.addEffect(new EffectInstance(Effects.WEAKNESS, 500, 4, true, false));
                     targetEntity.addEffect(new EffectInstance(ModStatusEffects.STAND_VIRUS.get(), 600, 4, true, false));
-                    standEntity.playSound(ModSounds.VAMPIRE_CURE_END .get(), 1.0F, 1.0F);
+                    standEntity.playSound(InitSounds.CHARIOT_REQUIEM_VIRUS.get(), 1.0F, 1.0F);
                 }
             }
 
