@@ -7,5 +7,8 @@
   "action.rotp_cr.chariot_requiem_barrage": "Шквал ударов",
   "action.rotp_cr.chariot_requiem_block": "Блокирование",
   "action.rotp_cr.chariot_requiem_virus": "Выпустить вирус",
-  "action.rotp_cr.chariot_requiem_aura": "Аура сна"
+  "action.rotp_cr.chariot_requiem_stand_virus": "Выпустить Метеоритный вирус",
+  "action.rotp_cr.chariot_requiem_aura": "Аура сна",
+  "action.rotp_cr.chariot_requiem_remove_stand": "Забрать Стенд",
+  "effect.rotp_cr.chariot_virus_effect": "Вирус Реквиема"
 }

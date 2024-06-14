@@ -31,6 +31,7 @@ public class EventHandler {
                             power.toggleSummon();
                             event.setCanceled(true);
                             event.setCancellationResult(ActionResultType.SUCCESS);
+                            item.shrink(1);
                         }
                     }
                 }

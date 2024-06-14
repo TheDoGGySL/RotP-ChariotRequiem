@@ -1,5 +1,9 @@
 package com.thedoggy.chariot_requiem_addon.client.render;
 
+import com.github.standobyte.jojo.action.stand.StandEntityAction;
+import com.github.standobyte.jojo.client.render.entity.pose.anim.PosedActionAnimation;
+import com.thedoggy.chariot_requiem_addon.action.ChariotVirus;
+import com.thedoggy.chariot_requiem_addon.action.StandVirus;
 import com.thedoggy.chariot_requiem_addon.entity.ChariotRequiemEntity;
 import com.github.standobyte.jojo.client.render.entity.model.stand.HumanoidStandModel;
 import com.github.standobyte.jojo.client.render.entity.model.stand.bb.BlockbenchStandModelHelper;
@@ -15,47 +19,43 @@ import com.github.standobyte.jojo.client.render.entity.pose.RotationAngle;
 public class ChariotRequiemModel extends HumanoidStandModel<ChariotRequiemEntity> {
 
 
-	public ChariotRequiemModel() {
-		super();
+    public ChariotRequiemModel() {
+        super();
 
-		BlockbenchStandModelHelper.fillFromBlockbenchExport(new ChariotRequiemModelBlockbench(), this);
-	}
+        BlockbenchStandModelHelper.fillFromBlockbenchExport(new ChariotRequiemModelBlockbench(), this);
+    }
 
-	@Override // TODO summon poses
+    @Override // TODO summon poses
     protected RotationAngle[][] initSummonPoseRotations() {
-        return new RotationAngle[][] {
-                new RotationAngle[] {
+        return new RotationAngle[][]{
+                new RotationAngle[]{
                         RotationAngle.fromDegrees(head, 2.5F, 0F, 0.0F),
                         RotationAngle.fromDegrees(leftArm, 56.06876F, -46.85041F, -20.09752F),
                         RotationAngle.fromDegrees(rightArm, -172.8532F, -3.7147F, -5.9166F),
                         RotationAngle.fromDegrees(leftLeg, 0.0F, 0.0F, -10.0F),
                         RotationAngle.fromDegrees(rightLeg, 0.0F, 0.0F, 10.0F),
                 },
-            new RotationAngle[] {
-                    RotationAngle.fromDegrees(head, -35F, 0F, 0.0F),
-                    RotationAngle.fromDegrees(leftArm, -141.7439F, -8.3109F, -21.3376),
-                    RotationAngle.fromDegrees(rightArm, 30.4171F, 17.7863F, 31.1453F),
-                    RotationAngle.fromDegrees(leftLeg, 0.0F, 0.0F, -15.0F),
-                    RotationAngle.fromDegrees(rightLeg, 0.0F, 0.0F, 12.5F),
-            }
-		};
+                new RotationAngle[]{
+                        RotationAngle.fromDegrees(head, -35F, 0F, 0.0F),
+                        RotationAngle.fromDegrees(leftArm, -141.7439F, -8.3109F, -21.3376),
+                        RotationAngle.fromDegrees(rightArm, 30.4171F, 17.7863F, 31.1453F),
+                        RotationAngle.fromDegrees(leftLeg, 0.0F, 0.0F, -15.0F),
+                        RotationAngle.fromDegrees(rightLeg, 0.0F, 0.0F, 12.5F),
+                }
+        };
     }
-
-
 
 
     @Override
     public void prepareMobModel(ChariotRequiemEntity entity, float walkAnimPos, float walkAnimSpeed, float partialTick) {
         super.prepareMobModel(entity, walkAnimPos, walkAnimSpeed, partialTick);
 
-        }
-
-
+    }
 
 
     @Override // TODO idle pose
     protected ModelPose<ChariotRequiemEntity> initIdlePose() {
-        return new ModelPose<>(new RotationAngle[] {
+        return new ModelPose<>(new RotationAngle[]{
                 RotationAngle.fromDegrees(head, 0.0F, 0F, 0F),
                 RotationAngle.fromDegrees(body, 5.7686F, 29.8742F, 5.3807F),
                 RotationAngle.fromDegrees(leftArm, 9.7216F, 0.7779F, -10.1423F),
@@ -81,4 +81,22 @@ public class ChariotRequiemModel extends HumanoidStandModel<ChariotRequiemEntity
         });
     }
 
+    @Override
+    protected void initActionPoses() {
+        actionAnim.put(ChariotVirus.CHARIOT_VIRUS, new PosedActionAnimation.Builder<ChariotRequiemEntity>()
+                .addPose(StandEntityAction.Phase.BUTTON_HOLD, new ModelPose<>(new RotationAngle[]{
+                        new RotationAngle(body, 0.0F, 0.0F, 0.0F),
+                        new RotationAngle(rightArm, -1.5708F, 0.3927F, 0.1F),
+                        new RotationAngle(rightForeArm, 0.0F, -1.5708F, -0.3927F),
+                }))
+                .build(idlePose));
+        actionAnim.put(StandVirus.STAND_VIRUS, new PosedActionAnimation.Builder<ChariotRequiemEntity>()
+                .addPose(StandEntityAction.Phase.BUTTON_HOLD, new ModelPose<>(new RotationAngle[]{
+                        new RotationAngle(body, 0.0F, 0.0F, 0.0F),
+                        new RotationAngle(rightArm, -1.5708F, 0.3927F, 0.1F),
+                        new RotationAngle(rightForeArm, 0.0F, -1.5708F, -0.3927F),
+                }))
+                .build(idlePose));
+        super.initActionPoses();
     }
+}

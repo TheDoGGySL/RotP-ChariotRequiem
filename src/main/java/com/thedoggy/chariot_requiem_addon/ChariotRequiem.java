@@ -3,6 +3,8 @@ package com.thedoggy.chariot_requiem_addon;
 import com.thedoggy.chariot_requiem_addon.init.InitEntities;
 import com.thedoggy.chariot_requiem_addon.init.InitSounds;
 import com.thedoggy.chariot_requiem_addon.init.InitStands;
+import com.thedoggy.chariot_requiem_addon.init.InitParticles;
+import com.thedoggy.chariot_requiem_addon.init.InitEffects;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -22,6 +24,8 @@ public class ChariotRequiem {
         InitSounds.SOUNDS.register(modEventBus);
         InitStands.ACTIONS.register(modEventBus);
         InitStands.STANDS.register(modEventBus);
+        InitEffects.EFFECTS.register(modEventBus);
+        InitParticles.PARTICLES.register((modEventBus));
 
 
         }

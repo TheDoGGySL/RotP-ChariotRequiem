@@ -29,6 +29,18 @@
       "rotp_cr:action/scr_punch_heavy"
     ]
   },
+  "scr_unstandable": {
+    "subtitle": "rotp_cr.subtitle.scr_unstandable",
+    "sounds": [
+      "rotp_cr:action/scr_unstandable"
+    ]
+  },
+  "scr_yellow_virus": {
+    "subtitle": "rotp_cr.subtitle.scr_yellow_virus",
+    "sounds": [
+      "rotp_cr:action/scr_yellow_virus"
+    ]
+  },
   "scr_ability_1": {
     "subtitle": "rotp_cr.subtitle.scr_ability_1",
     "sounds": [

@@ -1,37 +1,28 @@
 package com.thedoggy.chariot_requiem_addon.action;
 
-import com.github.standobyte.jojo.action.ActionConditionResult;
-import com.github.standobyte.jojo.action.ActionTarget;
 import com.github.standobyte.jojo.action.stand.StandEntityAction;
 import com.github.standobyte.jojo.entity.stand.StandEntity;
 import com.github.standobyte.jojo.entity.stand.StandEntityTask;
 import com.github.standobyte.jojo.entity.stand.StandPose;
 import com.github.standobyte.jojo.init.ModParticles;
-import com.github.standobyte.jojo.init.ModSounds;
 import com.github.standobyte.jojo.init.ModStatusEffects;
 import com.github.standobyte.jojo.power.impl.stand.IStandPower;
 import com.github.standobyte.jojo.util.general.GeneralUtil;
-import com.github.standobyte.jojo.util.mod.JojoModUtil;
-import com.thedoggy.chariot_requiem_addon.init.InitEffects;
-import com.thedoggy.chariot_requiem_addon.init.InitParticles;
-import com.thedoggy.chariot_requiem_addon.init.InitSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
-public class ChariotVirus extends StandEntityAction {
-    public ChariotVirus(StandEntityAction.Builder builder) {
+public class StandVirus extends StandEntityAction {
+    public StandVirus(StandEntityAction.Builder builder) {
         super(builder);
     }
-    public static final StandPose CHARIOT_VIRUS = new StandPose("CHARIOT_VIRUS");
+    public static final StandPose STAND_VIRUS = new StandPose("STAND_VIRUS");
 
     private static final double RANGE = 2;
+
     @Override
     public void standTickPerform(World world, StandEntity standEntity, IStandPower userPower, StandEntityTask task) {
         Vector3d wrLookVec = standEntity.getLookAngle();
@@ -43,13 +34,11 @@ public class ChariotVirus extends StandEntityAction {
                 Entity effecttarget = entity;
                 if (effecttarget instanceof LivingEntity) {
                     LivingEntity effectTarget = (LivingEntity) effecttarget;
-                    effectTarget.addEffect(new EffectInstance(InitEffects.CHARIOT_VIRUS.get(), 600, 0));
-                    effectTarget.addEffect(new EffectInstance(Effects.BLINDNESS, 600, 0));
-                    effectTarget.addEffect(new EffectInstance(Effects.CONFUSION, 600, 0));
-                    effectTarget.addEffect(new EffectInstance(Effects.WEAKNESS, 600, 0));
+                    effectTarget.addEffect(new EffectInstance(ModStatusEffects.STAND_VIRUS.get(), 600, 0));
+
                 }
             }
-            ;
+
         });
 
         if (world.isClientSide()) {
@@ -63,10 +52,9 @@ public class ChariotVirus extends StandEntityAction {
                         .xRot((float) ((Math.random() * 2 - 1) * Math.PI / 6))
                         .yRot((float) ((Math.random() * 2 - 1) * Math.PI / 6)));
                 Vector3d vecToStand = userPos.subtract(particlePos).normalize().scale(0.75);
-                world.addParticle(InitParticles.CHARIOT_VIRUS_PARTICLE.get(), particlePos.x, particlePos.y, particlePos.z, -vecToStand.x, -vecToStand.y, -vecToStand.z);
+                world.addParticle(ModParticles.METEORITE_VIRUS.get(), particlePos.x, particlePos.y, particlePos.z, -vecToStand.x,  -vecToStand.y, -vecToStand.z);
             }, 5);
         }
     }
 }
-
 

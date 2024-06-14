@@ -1,6 +1,7 @@
 package com.thedoggy.chariot_requiem_addon.init;
 
 import com.thedoggy.chariot_requiem_addon.ChariotRequiem;
+import com.thedoggy.chariot_requiem_addon.action.StandVirus;
 import com.thedoggy.chariot_requiem_addon.entity.ChariotRequiemEntity;
 import com.github.standobyte.jojo.action.Action;
 import com.github.standobyte.jojo.action.stand.*;
@@ -48,6 +49,7 @@ public class InitStands {
                     .punchSound(InitSounds.CHARIOT_REQUIEM_PUNCH_HEAVY)
                     .partsRequired(StandPart.ARMS)));
 
+
     public static final RegistryObject<StandEntityAction> CHARIOT_REQUIEM_BLOCK = ACTIONS.register("chariot_requiem_block",
             () -> new StandEntityBlock());
 
@@ -55,21 +57,32 @@ public class InitStands {
     public static final RegistryObject<StandEntityAction> CHARIOT_REQUIEM_AURA = ACTIONS.register("chariot_requiem_aura",
             () -> new ChariotDarkAura(new StandEntityAction.Builder()
                     .standUserWalkSpeed(0.5f)
-                    .holdToFire(60, false)
-                    .cooldown(1000)
+                    .holdType(600)
+                    .staminaCostTick(3F)
+                    .cooldown(600)
                     .resolveLevelToUnlock(1)
-                    .staminaCost(50)
+                    .standSound(InitSounds.CHARIOT_REQUIEM_AURA)
             ));
-
 
     public static final RegistryObject<StandEntityAction> CHARIOT_VIRUS = ACTIONS.register("chariot_requiem_virus",
             () -> new ChariotVirus(new StandEntityAction.Builder()
-                    .standUserWalkSpeed(0.75f)
-                    .cooldown(1200)
-                    .autoSummonStand()
-                    .resolveLevelToUnlock(4)
-                    .staminaCost(75)
-            ));
+                    .holdType(50)
+                    .staminaCostTick(2F)
+                    .cooldown(500)
+                    .resolveLevelToUnlock(2)
+                    .standOffsetFromUser(0, 1)
+                    .standSound(InitSounds.CHARIOT_REQUIEM_YELLOW_VIRUS)
+                    .partsRequired(StandPart.ARMS)));
+
+    public static final RegistryObject<StandEntityAction> STAND_VIRUS = ACTIONS.register("chariot_requiem_stand_virus",
+            () -> new StandVirus(new StandEntityAction.Builder()
+                    .holdType(50)
+                    .staminaCostTick(3F)
+                    .cooldown(450).shiftVariationOf(CHARIOT_VIRUS)
+                    .resolveLevelToUnlock(3)
+                    .standOffsetFromUser(0, 1)
+                    .standSound(InitSounds.CHARIOT_REQUIEM_VIRUS)
+                    .partsRequired(StandPart.MAIN_BODY)));
 
     public static final EntityStandRegistryObject<EntityStandType<StandStats>, StandEntityType<ChariotRequiemEntity>> STAND_CHARIOT_REQUIEM =
             new EntityStandRegistryObject<>("chariot_requiem",
@@ -89,7 +102,7 @@ public class InitStands {
                     .defaultStats(StandStats.class, new StandStats.Builder()
                             .power(15)
                             .speed(5)
-                            .range(10000, 10000)
+                            .range(100, 100)
                             .durability(20)
                             .precision(15)
                             .randomWeight(0)

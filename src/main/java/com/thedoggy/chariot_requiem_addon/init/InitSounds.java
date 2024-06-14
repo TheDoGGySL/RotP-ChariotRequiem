@@ -32,6 +32,8 @@ public class InitSounds {
 
     public static final Supplier<SoundEvent> CHARIOT_REQUIEM_VIRUS = SOUNDS.register("scr_ability_2",
             () -> new SoundEvent(new ResourceLocation(ChariotRequiem.MOD_ID,"scr_ability_2")));
+    public static final Supplier<SoundEvent> CHARIOT_REQUIEM_YELLOW_VIRUS = SOUNDS.register("scr_yellow_virus",
+            () -> new SoundEvent(new ResourceLocation(ChariotRequiem.MOD_ID,"scr_yellow_virus")));
     public static final Supplier<SoundEvent> CHARIOT_REQUIEM_PUNCH_BARRAGE = InitSounds.CHARIOT_REQUIEM_PUNCH_LIGHT;
 
     public static final OstSoundList CHARIOT_REQUIEM_OST = new OstSoundList(
