@@ -1,6 +1,7 @@
 package com.thedoggy.chariot_requiem_addon.init;
 
 import com.thedoggy.chariot_requiem_addon.ChariotRequiem;
+import com.thedoggy.chariot_requiem_addon.action.SilverChariotArrow;
 import com.thedoggy.chariot_requiem_addon.entity.ChariotRequiemEntity;
 import com.github.standobyte.jojo.action.Action;
 import com.github.standobyte.jojo.action.stand.*;
@@ -61,6 +62,10 @@ public class InitStands {
                     .staminaCost(50)
             ));
 
+    public static final RegistryObject<StandEntityAction> ARROW = ACTIONS.register("arrow",
+            ()-> new SilverChariotArrow(new StandEntityAction.Builder().standUserWalkSpeed(0).
+                    holdToFire(20,false).standOffsetFromUser(0,1))
+            );
 
     public static final RegistryObject<StandEntityAction> CHARIOT_VIRUS = ACTIONS.register("chariot_requiem_virus",
             () -> new ChariotVirus(new StandEntityAction.Builder()
