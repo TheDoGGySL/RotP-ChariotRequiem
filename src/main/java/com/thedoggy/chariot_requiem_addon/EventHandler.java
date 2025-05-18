@@ -16,6 +16,8 @@ import static com.thedoggy.chariot_requiem_addon.ChariotRequiem.MOD_ID;
 
 @Mod.EventBusSubscriber(modid = MOD_ID)
 public class EventHandler {
+
+    /*
     @SubscribeEvent
     public static void onItemUse(PlayerInteractEvent.RightClickItem event) {
         PlayerEntity player = event.getPlayer();
@@ -38,7 +40,10 @@ public class EventHandler {
 
             }
         }
-    }
+
+     */
+
+}
 
 
 

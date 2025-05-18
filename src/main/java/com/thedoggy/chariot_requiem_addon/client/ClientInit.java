@@ -1,9 +1,11 @@
 package com.thedoggy.chariot_requiem_addon.client;
 
 import com.thedoggy.chariot_requiem_addon.ChariotRequiem;
+import com.thedoggy.chariot_requiem_addon.client.playeranim.anim.AddonPlayersAnimation;
 import com.thedoggy.chariot_requiem_addon.client.render.ChariotRequiemRenderer;
 import com.thedoggy.chariot_requiem_addon.init.InitStands;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -16,10 +18,14 @@ public class ClientInit {
     public static void onFMLClientSetup(FMLClientSetupEvent event) {
         RenderingRegistry.registerEntityRenderingHandler(
                 InitStands.STAND_CHARIOT_REQUIEM.getEntityType(), ChariotRequiemRenderer::new);
+    }
 
+    @SubscribeEvent(priority = EventPriority.LOW)
+    public static void loadCustomArmorModels(FMLClientSetupEvent event) {
+        event.enqueueWork(AddonPlayersAnimation::init);
+    }
 
-
-    }}
+}
 
 
 

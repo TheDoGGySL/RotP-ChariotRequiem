@@ -23,9 +23,7 @@ public class ChariotVirus extends StandEntityAction {
         super(builder);
     }
 
-    // если 2+ игрока будут использовать эту абилку, с большой вероятностью тут будет баг
-    // потому что в игре создан только один объект класса ChariotVirus
-    // и эти поля будут общими для всех игроков
+
     private Vector3d pos;
 
     public boolean main;

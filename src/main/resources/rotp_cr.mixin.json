@@ -1,0 +1,18 @@
+{
+  "required": false,
+  "package": "com.thedoggy.chariot_requiem_addon.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+
+  ],
+  "server": [
+
+  ],
+  "injector": {
+    "defaultRequire": 1
+  },
+  "refmap": "rotp_cr.mixins-refmap.json",
+  "mixins": [
+    "StandTypeMixin"
+  ]
+}
